@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import style from './main.css';
-import ContactForm from '../routes/ContactForm';
+import WidgetForm from '../routes/WidgetForm';
 import { useContext, useState } from 'preact/hooks';
 import { ConfigContext, GlobalsContext } from '../AppContext';
 import clsx from 'clsx';
@@ -35,7 +35,7 @@ const Main = () => {
                     <Router
                         onChange={(r) => setTitle(getTitle(r))}
                         routes={{
-                            '/': <RouteComponent component={ContactForm} />,
+                            '/': <RouteComponent component={WidgetForm} />,
                         }} />
                 </div>
             </div>

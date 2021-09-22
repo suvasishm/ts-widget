@@ -1,7 +1,7 @@
 import { Configurations } from './models';
 
 type MethodNames = 'init' | 'event';
-export const DEFAULT_NAME = '_hw';
+export const DEFAULT_NAME = '_shsw';
 
 /**
  * Represents a model that is created in embedded script
@@ -75,7 +75,7 @@ export default (
                 win[`loaded-${instanceName}`] = true;
                 break;
             // TODO: here you can handle additional async interactions
-            // with the widget from page (e.q. `_hw('refreshStats')`)
+            // with the widget from page (e.q. `_shsw('refreshStats')`)
             default:
                 console.warn(`Unsupported method [${methodName}]`, item[1]);
         }

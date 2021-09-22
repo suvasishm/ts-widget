@@ -28,6 +28,7 @@ export interface AppConfigurations {
 export type Configurations = InfraConfigurations & AppConfigurations;
 
 export interface FormModel {
+    serviceType: string;
     zipCode: string;
     product: string;
 }

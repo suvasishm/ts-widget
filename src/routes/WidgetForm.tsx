@@ -1,17 +1,19 @@
 import {Fragment, h} from 'preact';
 import {useContext, useMemo, useState, useEffect} from 'preact/hooks';
-import style from './contactForm.css';
+import style from './widgetForm.css';
 import { ConfigContext, ServiceContext } from '../AppContext';
 import Field from '../components/Field';
 import { useIsMounted } from '../hooks';
 
-const ContactForm = () => {
+const WidgetForm = () => {
     const config = useContext(ConfigContext);
     const service = useContext(ServiceContext);
     const mounted = useIsMounted();
 
     const [submitting, setSubmitting] = useState(false);
     // const [serverError, setServerError] = useState('');
+
+    const [serviceType, setServiceType] = useState('R');
 
     const [product, setProduct] = useState('');
     const productError = useMemo(
@@ -39,20 +41,20 @@ const ContactForm = () => {
             return;
         }
 
-        console.log('Sending form', { zipCode, product });
+        console.log('Sending form', { zipCode, product, serviceType });
 
         // @ts-ignore
-        window?.open(`https://searshomeservices.com/scheduler/beta/shs?serviceType=R&zipCode=${zipCode}&productName=${product}`, '_blank').focus();
+        window?.open(`https://searshomeservices.com/scheduler/beta/shs?serviceType=${serviceType}&zipCode=${zipCode}&productName=${product}`, '_blank').focus();
 
-        /*service?.sendForm({ zipCode, product })
+        /*service?.validateForm({ zipCode, product })
             .then(() => {
-                // todo
+                // todo if required
             })
             .catch(() => {
                 setServerError(`Something went wrong and we couldn't send your form. Please try again later.`);
             })
             .then(() => setSubmitting(false));*/
-    }, [formValid, submitting, zipCode, product, service]);
+    }, [formValid, submitting, serviceType, zipCode, product, service]);
 
     console.log(product, zipCode);
     return (
@@ -95,6 +97,18 @@ const ContactForm = () => {
                             {...inputProps}
                         />)} />
 
+                <Field
+                    name='maintenance'
+                    title='Maintenance'
+                    render={(inputProps) => (
+                        <input
+                            type='checkbox'
+                            onClick={() => {
+                                setServiceType(!serviceType || serviceType === 'R' ? 'M' : 'R');
+                            }}
+                            {...inputProps}
+                        />)} />
+
                 <div className={style.actions}>
                     <button type='submit' disabled={!formValid}>
                         {'Schedule Now'}
@@ -104,4 +118,4 @@ const ContactForm = () => {
         </div >);
 };
 
-export default ContactForm;
+export default WidgetForm;
