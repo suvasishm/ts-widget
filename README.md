@@ -21,13 +21,7 @@ During initialization, you can pass additional configurations to widget like so:
 
 ```diff
 -_shsw('init');
-+_shsw('init', { debug: true,
-                products: [
-                    {title: 'Range', code: 'RANGEEG'},
-                    {title: 'Oven', code: 'OVENBI'},
-                    {title: 'Boiler', code: 'BOILERGAS'}
-                ]
-            });
++_shsw('init', { debug: true, products: [{title: 'Range', code: 'RANGEEG'}, {title: 'Oven', code: 'OVENBI'},{title: 'Boiler', code: 'BOILERGAS'}]});
 ```
 
 You can find a full list of configurations in `AppConfigurations` interface.
