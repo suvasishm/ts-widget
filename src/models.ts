@@ -7,22 +7,24 @@ interface InfraConfigurations {
  * that can be done from embedded script. Those settings
  * are passed around in application via Context.
  */
+// Todo: fix configuration
+export interface Product {
+    title: string;
+    code: string;
+}
 export interface AppConfigurations {
     debug: boolean;
     serviceBaseUrl: string;
     minimized: boolean;
     disableDarkMode: boolean;
-    text: {
-        minimizedTitle?: string;
+    text?: {
         formTitle?: string;
         formSubTitle?: string;
-        thankYouTitle?: string;
-        thankYouBody?: string;
-        faqTitle?: string;
     };
-    styles: {
+    styles?: {
         classNameContainer?: string;
     };
+    products: Product[];
 }
 
 export type Configurations = InfraConfigurations & AppConfigurations;

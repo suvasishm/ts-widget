@@ -9,11 +9,18 @@ import { Configurations } from './models';
  */
 const defaultConfig: Configurations = {
     debug: false,
-    serviceBaseUrl: 'https://help-widget-backend.glitch.me',
+    serviceBaseUrl: 'https://api.shs.com',
     minimized: false,
     disableDarkMode: false,
     text: {},
-    styles: {}
+    styles: {},
+    products: [
+        {title: 'Cooktop', code: 'COOKTOP'},
+        {title: 'Refrigerator', code: 'REFRIGBF'},
+        {title: 'Dishwasher', code: 'DISHWASHBI'},
+        {title: 'Washer', code: 'WASHERFL'},
+        {title: 'Stacked Laundry Unit', code: 'WASHERDRYERL'},
+    ],
 };
 
 // main entry point - calls loader and render Preact app into supplied element

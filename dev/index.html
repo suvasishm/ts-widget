@@ -21,7 +21,14 @@
         js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
         js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
     }(window, document, 'script', '_shsw', './widget.js'));
-    _shsw('init');
+    _shsw('init',
+            { debug: true,
+                products: [
+                    {title: 'Range', code: 'RANGEEG'},
+                    {title: 'Oven', code: 'OVENBI'},
+                    {title: 'Boiler', code: 'BOILERGAS'}
+                ]
+            });
 &lt;/script&gt;
         </pre>
     </code>
@@ -60,7 +67,14 @@
             js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
             js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
         }(window, document, 'script', '_shsw', './widget.js'));
-        _shsw('init', { debug: true });
+        _shsw('init',
+            { debug: true,
+                products: [
+                    {title: 'Range', code: 'RANGEEG'},
+                    {title: 'Oven', code: 'OVENBI'},
+                    {title: 'Boiler', code: 'BOILERGAS'}
+                ]
+            });
     </script>
     <style>
         #widget-aw1 .main-root-hX4vn {

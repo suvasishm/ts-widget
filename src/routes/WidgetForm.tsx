@@ -7,6 +7,7 @@ import { useIsMounted } from '../hooks';
 
 const WidgetForm = () => {
     const config = useContext(ConfigContext);
+    console.log(config);
     const service = useContext(ServiceContext);
     const mounted = useIsMounted();
 
@@ -41,10 +42,11 @@ const WidgetForm = () => {
             return;
         }
 
-        console.log('Sending form', { zipCode, product, serviceType });
+        const url = `https://searshomeservices.com/scheduler/beta/shs?serviceType=${serviceType}&zipCode=${zipCode}&productName=${encodeURI(product)}`;
+        console.log('URL', url);
 
         // @ts-ignore
-        window?.open(`https://searshomeservices.com/scheduler/beta/shs?serviceType=${serviceType}&zipCode=${zipCode}&productName=${product}`, '_blank').focus();
+        window?.open(url, '_blank').focus();
 
         /*service?.validateForm({ zipCode, product })
             .then(() => {
@@ -59,7 +61,7 @@ const WidgetForm = () => {
     console.log(product, zipCode);
     return (
         <div>
-            <p>{config.text.formSubTitle ??
+            <p>{config.text?.formSubTitle ??
                 <Fragment>SCHEDULE YOUR REPAIR</Fragment>}</p>
             <form
                 onSubmit={(e) => {
@@ -68,8 +70,8 @@ const WidgetForm = () => {
                 }}>
                 {/*{serverError && <div className={style.error}>{serverError}</div>}*/}
                 <Field
-                    name='message'
-                    title='Message'
+                    name='products'
+                    title='Products'
                     error={productError}
                     render={(inputProps) => (
                         <select
@@ -77,10 +79,9 @@ const WidgetForm = () => {
                             onChange={(e) => setProduct(e.currentTarget.value)}
                             {...inputProps}>
                             <option value=''>Select Product</option>
-                            <option value='cooktop'>COOKTOP</option>
-                            <option value='dishwasher'>DISHWASHER</option>
-                            <option value='dryer'>DRYER</option>
-                            <option value='over'>OVEN</option>
+                            {config.products.map((p) => (
+                                <option title={p.title} value={p.title}>{p.title}</option>
+                            ))}
                         </select>
                     )} />
 

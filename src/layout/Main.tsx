@@ -14,13 +14,9 @@ const Main = () => {
     const [title, setTitle] = useState('');
     const getTitle = (route: string) => {
         switch (route) {
-            case '/thankyou':
-                return config.text.thankYouTitle ?? 'Thank You';
-            case '/faq':
-                return config.text.faqTitle ?? 'FAQ';
             case '/':
             default:
-                return config.text.formTitle ?? 'Contact Form';
+                return config.text?.formTitle ?? 'SHS Scheduler';
         }
     };
 
@@ -31,7 +27,7 @@ const Main = () => {
                 <div className={clsx(
                     style.container,
                     { [style.minimized]: !widgetOpen },
-                    config.styles.classNameContainer)}>
+                    config.styles?.classNameContainer)}>
                     <Router
                         onChange={(r) => setTitle(getTitle(r))}
                         routes={{
