@@ -46,8 +46,7 @@ const WidgetForm = () => {
         console.log('URL', url);
 
         // @ts-ignore
-        window?.open(url, '_blank').focus();
-
+        window?.open(url, 'shs-scheduler', 'top=300,left=490,resizable=0,menubar=no,statusbar=no,location=no,toolbar=no,scrollbars=no,width=800,height=600').focus();
         /*service?.validateForm({ zipCode, product })
             .then(() => {
                 // todo if required
