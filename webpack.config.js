@@ -9,7 +9,7 @@ module.exports = (env) => {
   return [{
     entry: './src/index.ts',
     output: {
-      filename: 'widget.js',
+      filename: 'shs-widget.js',
       path: path.resolve(bundleOutputDir),
     },
     devServer: {
