@@ -1,4 +1,4 @@
-# Help Web Widget
+# Javascript Web Widget
 
 Adopted from [here](https://blog.jenyay.com/web-ui-widget/).
 
