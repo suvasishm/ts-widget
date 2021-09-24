@@ -43,7 +43,6 @@ const WidgetForm = () => {
         }
 
         const url = `https://searshomeservices.com/scheduler/beta/shs?serviceType=${serviceType}&zipCode=${zipCode}&productName=${encodeURI(product)}`;
-        console.log('URL', url);
 
         // @ts-ignore
         window?.open(url, 'shs-scheduler', 'top=300,left=490,resizable=0,menubar=no,statusbar=no,location=no,toolbar=no,scrollbars=no,width=800,height=600').focus();
@@ -57,7 +56,6 @@ const WidgetForm = () => {
             .then(() => setSubmitting(false));*/
     }, [formValid, submitting, serviceType, zipCode, product, service]);
 
-    console.log(product, zipCode);
     return (
         <div>
             <p>{config.text?.formSubTitle ??
