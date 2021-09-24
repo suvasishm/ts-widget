@@ -12,7 +12,7 @@ In order to embed the widget add the following snippet at any location on the ho
         w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
         js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
         js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
-    }(window, document, 'script', '_shsw', './widget.js'));
+    }(window, document, 'script', '_shsw', './shs-widget.js'));
     _shsw('init');
 </script>
 ```
