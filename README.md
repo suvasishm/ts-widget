@@ -1,4 +1,4 @@
-# Javascript Web Widget
+# Javascript Web Widget with custom configuration
 
 Adopted from [here](https://blog.jenyay.com/web-ui-widget/).
 
